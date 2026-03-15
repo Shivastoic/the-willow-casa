@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, Lato, Oswald, Lobster } from "next/font/google";
+import { Cormorant_Garamond, Lato, Oswald, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -20,10 +20,10 @@ export const oswald = Oswald({
 	weight: ["200", "300", "400", "500", "600", "700"],
 });
 
-export const lobster = Lobster({
-	variable: "--font-lobster",
+export const poppins = Poppins({
+	variable: "--font-poppins",
 	subsets: ["latin"],
-	weight: ["400"],
+	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata = {
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body
-				className={`${cormorantGaramond.variable} ${lato.variable} ${oswald.variable} antialiased`}
+				className={`${cormorantGaramond.variable} ${lato.variable} ${oswald.variable} ${poppins.variable} antialiased`}
 			>
 				<Header />
 				{children}

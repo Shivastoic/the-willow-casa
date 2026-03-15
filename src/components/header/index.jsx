@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
+import { MdArrowOutward } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
@@ -75,18 +76,33 @@ export default function Header() {
 
                         <div className="flex items-center gap-10 px-10 border-l border-white/20 h-full">
                             {NAV_LINKS.map((item, index) => (
-                                <Link key={index} href={item.link}>
-                                    <button className="text-white/60 text-sm hover:text-white transition-colors duration-300 uppercase">
+                                <Link key={index} href={item.link} className="group relative">
+                                    <button className="relative text-white/70 text-sm hover:text-cream transition-colors duration-300 uppercase font-poppins cursor-pointer pb-[2px]">
+
                                         {item.name}
+
+                                        {/* underline */}
+                                        <span className="absolute left-0 bottom-0 h-[1px] w-full bg-cream scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+
                                     </button>
                                 </Link>
                             ))}
                         </div>
 
                         <div className="flex items-center justify-center px-10 h-full border-l border-white/20">
-                            <button className="text-white hover:text-white/70 transition-colors duration-300 border-b">
-                                CONTACT US
-                            </button>
+                            <Link href="/contact" className="group">
+                                    <button className="relative flex items-center gap-1 pb-[2px] cursor-pointer">
+
+                                        <span className=" font-poppins font-medium text-cream">
+                                            CONTACT US
+                                        </span>
+
+                                        <MdArrowOutward className="text-xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 text-cream"/>
+
+                                        <span className="absolute left-0 bottom-0 h-[2px] w-full bg-cream scale-x-[0.3] origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+
+                                    </button>
+                                </Link>
                         </div>
 
                     </div>
