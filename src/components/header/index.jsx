@@ -74,7 +74,7 @@ export default function Header() {
                     {/* Desktop Nav */}
                     <div className="hidden lg:flex items-center">
 
-                        <div className="flex items-center gap-10 px-10 border-l border-white/20 h-full">
+                        <div className="flex items-center gap-10 px-10 border-l border-white/20 h-max!">
                             {NAV_LINKS.map((item, index) => (
                                 <Link key={index} href={item.link} className="group relative">
                                     <button className="relative text-white/70 text-sm hover:text-cream transition-colors duration-300 uppercase font-poppins cursor-pointer pb-[2px]">
