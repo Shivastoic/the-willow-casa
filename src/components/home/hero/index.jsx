@@ -62,7 +62,7 @@ export default function Hero() {
 
         const slider = setInterval(() => {
             setActiveIndex((i) => (i + 1) % PROPERTIES.length)
-        }, 3000) // slide every 5 seconds
+        }, 5000) // slide every 5 seconds
 
         return () => {
             timers.forEach(clearTimeout)
@@ -86,7 +86,7 @@ export default function Hero() {
 
     return (
 
-        <section className="relative w-full min-h-screen pt-36 bg-primary-brown text-white overflow-hidden">
+        <section className="relative w-full min-h-screen pt-36 pb-12 md:pb-20 bg-primary-brown text-white overflow-hidden">
 
             {/* GOLDEN GRADIENT BACKGROUND */}
             <div className="absolute inset-0 z-0 pointer-events-none hidden lg:block">
