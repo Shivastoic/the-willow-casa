@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, } from "next/font/google";
+import { Cormorant_Garamond, Lato, Oswald, Lobster } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -8,6 +8,23 @@ const cormorantGaramond = Cormorant_Garamond({
     subsets: ["latin"],
 });
 
+const lato = Lato({
+	variable: "--font-lato",
+	weight: ["100","300", "400", "700", "900"],
+	subsets: ["latin"],
+});
+
+export const oswald = Oswald({
+	variable: "--font-oswald",
+	subsets: ["latin"],
+	weight: ["200", "300", "400", "500", "600", "700"],
+});
+
+export const lobster = Lobster({
+	variable: "--font-lobster",
+	subsets: ["latin"],
+	weight: ["400"],
+});
 
 export const metadata = {
 	title: "Create Next App",
@@ -18,7 +35,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body
-				className={`${cormorantGaramond.variable} antialiased`}
+				className={`${cormorantGaramond.variable} ${lato.variable} ${oswald.variable} antialiased`}
 			>
 				<Header />
 				{children}
