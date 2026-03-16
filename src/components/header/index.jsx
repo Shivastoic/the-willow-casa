@@ -7,9 +7,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 const NAV_LINKS = [
-    { name: "Projects", link: "#projects" },
     { name: "About Us", link: "#about" },
-    { name: "Services", link: "#services" }
+    { name: "Services", link: "#services" },
+    { name: "Projects", link: "#projects" },
 ]
 
 export default function Header() {
