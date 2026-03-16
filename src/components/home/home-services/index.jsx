@@ -4,7 +4,8 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, useMotionValue, useAnimation } from "framer-motion";
 import Container from "@/components/container";
 import Image from "next/image";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import Link from "next/link";
+import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md";
 
 const SERVICES = [
     {
@@ -38,6 +39,13 @@ const SERVICES = [
         desc: "Transformative renovation services that reimagine existing spaces through thoughtful design, material upgrades, and refined finishing details."
     }
 ];
+
+const data = {
+
+    title: "• Services we offer",
+    bottom_desc: "Every space tells a story. From residential homes and luxury apartments to large commercial interiors, we combine thoughtful design, quality materials, and expert craftsmanship to create spaces that feel refined, functional, and built to last.",
+
+}
 
 const GAP = 8;
 
@@ -114,100 +122,110 @@ export default function CardCarousel() {
     return (
         <section className="py-20">
             <Container>
+                <div className="space-y-10">
+                    {/* Header */}
+                    <div className="flex items-center justify-between pb-4 mb-6 border-b border-gray-300">
+                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
+                            {data.title}
+                        </h2>
+                        <div className="flex gap-3">
+                            <button
+                                onClick={() => go(index - 1)}
+                                disabled={index === 0}
+                                className="p-2 border border-black/20 hover:bg-black hover:text-white transition disabled:opacity-30 cursor-pointer"
+                            >
+                                <MdArrowBack size={20} />
+                            </button>
+                            <button
+                                onClick={() => go(index + 1)}
+                                disabled={index === maxIndex}
+                                className="p-2 border border-black/20 hover:bg-black hover:text-white transition disabled:opacity-30 cursor-pointer"
+                            >
+                                <MdArrowForward size={20} />
+                            </button>
+                        </div>
+                    </div>
 
-                {/* Header */}
-                <div className="flex items-center justify-between pb-4 mb-6 border-b border-gray-300">
-                    <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
-                        • Services we offer
-                    </h2>
-                    <div className="flex gap-3">
-                        <button
-                            onClick={() => go(index - 1)}
-                            disabled={index === 0}
-                            className="p-2 border border-black/20 hover:bg-black hover:text-white transition disabled:opacity-30 cursor-pointer"
+                    {/* Track */}
+                    <div className="overflow-hidden cursor-grab active:cursor-grabbing">
+                        <motion.div
+                            className="flex gap-1"
+                            animate={controls}
+                            drag="x"
+                            dragConstraints={{
+                                left: getTargetX(maxIndex) - 40,
+                                right: 40,
+                            }}
+                            dragElastic={0.08}
+                            dragMomentum={false}
+                            onDragStart={() => { isDragging.current = true; }}
+                            onDragEnd={handleDragEnd}
+                            style={{ x: dragX }}
+                            whileDrag={{ cursor: "grabbing" }}
                         >
-                            <MdArrowBack size={20} />
-                        </button>
-                        <button
-                            onClick={() => go(index + 1)}
-                            disabled={index === maxIndex}
-                            className="p-2 border border-black/20 hover:bg-black hover:text-white transition disabled:opacity-30 cursor-pointer"
-                        >
-                            <MdArrowForward size={20} />
-                        </button>
+                            {SERVICES.map((card, i) => (
+                                <div
+                                    key={i}
+                                    ref={i === 0 ? cardRef : null}
+                                    className={`flex-none ${cardWidthClass} min-h-[440px] bg-[#111] border border-white/8
+                                                flex flex-col gap-4 p-6 hover:bg-[#161616] transition-colors duration-300`}
+                                    onClickCapture={(e) => {
+                                        if (isDragging.current) {
+                                            e.stopPropagation();
+                                            isDragging.current = false;
+                                        }
+                                    }}
+                                >
+                                    <span className="text-lg tracking-widest text-white/40">
+                                        {card.number}
+                                    </span>
+                                    <div className="overflow-hidden">
+                                        <Image
+                                            src={card.image}
+                                            alt={card.title}
+                                            width={400}
+                                            height={300}
+                                            className="w-full h-48 object-cover rounded pointer-events-none"
+                                        />
+                                    </div>
+                                    
+                                    <div className="space-y-2">
+                                        <h3 className="font-cormorant-garamond text-2xl font-medium text-white mb-3 leading-tight">
+                                            {card.title}
+                                        </h3>
+                                        <p className="text-sm font-poppins text-white/50 leading-relaxed">
+                                            {card.desc}
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+                            ))}
+                        </motion.div>
+                    </div>
+
+                    {/* Dots */}
+                    <div className="flex justify-center gap-1.5 mt-5">
+                        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => go(i)}
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                    i === index ? "bg-black/70" : "bg-black/20"
+                                }`}
+                            />
+                        ))}
+                    </div>
+
+                    <div className="flex flex-col md:flex-row justify-center gap-8">
+                        <p className="text-gray-600 font-poppins max-w-200">{data.bottom_desc}</p>
+                        <Link href="/services">
+                            <button className="px-6 py-3 font-poppins border border-black/30 hover:bg-black hover:text-white transition cursor-pointer flex items-center gap-3">
+                                View All Services
+                                <MdArrowOutward size={18} />
+                            </button>
+                        </Link>
                     </div>
                 </div>
-
-                {/* Track */}
-                <div className="overflow-hidden cursor-grab active:cursor-grabbing">
-                    <motion.div
-                        className="flex gap-1"
-                        animate={controls}
-                        drag="x"
-                        dragConstraints={{
-                            left: getTargetX(maxIndex) - 40,
-                            right: 40,
-                        }}
-                        dragElastic={0.08}
-                        dragMomentum={false}
-                        onDragStart={() => { isDragging.current = true; }}
-                        onDragEnd={handleDragEnd}
-                        style={{ x: dragX }}
-                        whileDrag={{ cursor: "grabbing" }}
-                    >
-                        {SERVICES.map((card, i) => (
-                            <div
-                                key={i}
-                                ref={i === 0 ? cardRef : null}
-                                className={`flex-none ${cardWidthClass} min-h-[440px] bg-[#111] border border-white/8
-                                            flex flex-col gap-4 p-6 hover:bg-[#161616] transition-colors duration-300`}
-                                onClickCapture={(e) => {
-                                    if (isDragging.current) {
-                                        e.stopPropagation();
-                                        isDragging.current = false;
-                                    }
-                                }}
-                            >
-                                <span className="text-lg tracking-widest text-white/40">
-                                    {card.number}
-                                </span>
-                                <div className="overflow-hidden">
-                                    <Image
-                                        src={card.image}
-                                        alt={card.title}
-                                        width={400}
-                                        height={300}
-                                        className="w-full h-48 object-cover rounded pointer-events-none"
-                                    />
-                                </div>
-                                
-                                <div className="space-y-2">
-                                    <h3 className="font-cormorant-garamond text-2xl font-medium text-white mb-3 leading-tight">
-                                        {card.title}
-                                    </h3>
-                                    <p className="text-sm font-poppins text-white/50 leading-relaxed">
-                                        {card.desc}
-                                    </p>
-                                </div>
-                                
-                            </div>
-                        ))}
-                    </motion.div>
-                </div>
-
-                {/* Dots */}
-                <div className="flex justify-center gap-1.5 mt-5">
-                    {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => go(i)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                i === index ? "bg-white/70" : "bg-white/20"
-                            }`}
-                        />
-                    ))}
-                </div>
-
             </Container>
         </section>
     );
