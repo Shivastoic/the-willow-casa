@@ -167,8 +167,8 @@ export default function CardCarousel() {
                                 <div
                                     key={i}
                                     ref={i === 0 ? cardRef : null}
-                                    className={`flex-none ${cardWidthClass} min-h-[440px] bg-[#111] border border-white/8
-                                                flex flex-col gap-4 p-6 hover:bg-[#161616] transition-colors duration-300`}
+                                    className={`flex-none ${cardWidthClass} min-h-[440px] bg-[#111111] border border-white/8
+                                                flex flex-col gap-4 p-6 hover:bg-[#1f1f1f] transition-colors duration-300`}
                                     onClickCapture={(e) => {
                                         if (isDragging.current) {
                                             e.stopPropagation();
@@ -219,7 +219,7 @@ export default function CardCarousel() {
                     <div className="flex flex-col md:flex-row justify-center gap-8">
                         <p className="text-gray-600 font-poppins max-w-200">{data.bottom_desc}</p>
                         <Link href="/services">
-                            <button className="px-6 py-3 font-poppins border border-black/30 hover:bg-black hover:text-white transition cursor-pointer flex items-center gap-3">
+                            <button className="px-6 py-3 font-poppins border border-black/30 hover:bg-[#111111] hover:text-white transition cursor-pointer flex items-center gap-3">
                                 View All Services
                                 <MdArrowOutward size={18} />
                             </button>

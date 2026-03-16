@@ -1,4 +1,6 @@
 import Container from "@/components/container";
+import Link from "next/link";
+import { MdArrowOutward } from "react-icons/md";
 
 const data = {
 
@@ -89,7 +91,15 @@ export default function WhyUs() {
                                         </div>
                                     ))}
                                 </div>
-
+                                
+                                <div className="">
+                                    <Link href="/contact">
+                                        <button className="px-4 py-2 font-poppins border border-black/30 hover:bg-black hover:text-white transition cursor-pointer flex items-center gap-3">
+                                            Get in touch
+                                            <MdArrowOutward size={18} />
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
