@@ -56,35 +56,37 @@ export default function HomeProjects() {
 
     return(
 
-        <section className="py-20">
-            <Container>
-                <div className="space-y-8">
-                    <div className="space-y-8 border-b border-gray-300 pb-8">
-                        <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
-                            {data.title}
-                        </h2>
-                        <div className="flex justify-between gap-8">
-                            <p className="text-xl md:text-4xl text-neutral-800 font-medium font-poppins max-w-150 leading-normal">
-                                {data.desc}
-                            </p>
-                            <div className="flex items-end">
-                                <Link href="/contact">
-                                    <button className="px-6 py-3 font-poppins border border-black/30 hover:bg-white bg-[#111111] hover:text-black text-white transition cursor-pointer flex items-center gap-3">
-                                        Collections
-                                        <MdArrowOutward size={18} />
-                                    </button>
-                                </Link>
+        <section className="px-2 md:px-4">
+            <div className="md:px-4 py-20 bg-cream/50 rounded-3xl">
+                <Container>
+                    <div className="space-y-8">
+                        <div className="space-y-8 border-b border-gray-300 pb-8">
+                            <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
+                                {data.title}
+                            </h2>
+                            <div className="flex flex-col md:flex-row justify-between gap-8">
+                                <p className="text-xl md:text-4xl text-neutral-800 font-medium font-poppins max-w-150 leading-normal">
+                                    {data.desc}
+                                </p>
+                                <div className="flex items-end">
+                                    <Link href="/contact">
+                                        <button className="px-4 py-2 md:px-6 md:py-3 font-poppins border border-black/30 hover:bg-white bg-[#111111] hover:text-black text-white transition cursor-pointer flex items-center gap-3">
+                                            Collections
+                                            <MdArrowOutward size={18} />
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="space-y-8">
-                        {projectData.map((project, i) => (
-                            <ProjectCard key={i} {...project} />
-                        ))}
+                        <div className="space-y-4 md:space-y-8">
+                            {projectData.map((project, i) => (
+                                <ProjectCard key={i} {...project} />
+                            ))}
 
+                        </div>
                     </div>
-                </div>
-            </Container>
+                </Container>
+            </div>
         </section>
 
     )

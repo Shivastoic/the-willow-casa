@@ -124,10 +124,10 @@ export default function Hero() {
 
                         <motion.div
                             key={active.id}
-                            initial={{ opacity: 0, scale: 1.05 }}
-                            animate={showImage ? { opacity: 1, scale: 1 } : { opacity: 0 }}
+                            initial={{ opacity: 0 }}
+                            animate={showImage ? { opacity: 1 } : { opacity: 0 }}
                             exit={{ opacity: 0 }}
-                            transition={{ duration: 0.4 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
                             className="absolute inset-0 overflow-hidden rounded-xl"
                         >
                             <img
@@ -202,37 +202,40 @@ export default function Hero() {
 
 
                 {/* THUMBNAILS DESKTOP */}
-                {thumbs.map((prop, i) => (
+                <AnimatePresence mode="popLayout">
+                    {thumbs.map((prop, i) => (
 
-                    <motion.div
-                        key={prop.id}
-                        initial={{ opacity: 0, y: 60 }}
-                        animate={showThumbs ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
-                        transition={{ duration: 0.7, delay: 0.1 * i }}
-                        className="hidden lg:block absolute bottom-8 w-[220px] xl:w-[270px] h-[220px] xl:h-[270px] rounded-lg overflow-hidden border border-white/10 cursor-pointer group"
-                        style={{ left: i === 0 ? "2rem" : "24%" }}
-                        onClick={() =>
-                            setActiveIndex(PROPERTIES.findIndex((p) => p.id === prop.id))
-                        }
-                    >
+                        <motion.div
+                            key={prop.id}
+                            initial={{ opacity: 0 }}
+                            animate={showThumbs ? { opacity: 1 } : { opacity: 0 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.9, ease: "easeOut", delay: i * 0.08 }}
+                            className="hidden lg:block absolute bottom-8 w-[220px] xl:w-[270px] h-[220px] xl:h-[270px] rounded-lg overflow-hidden border border-white/10 cursor-pointer group"
+                            style={{ left: i === 0 ? "2rem" : "24%" }}
+                            onClick={() =>
+                                setActiveIndex(PROPERTIES.findIndex((p) => p.id === prop.id))
+                            }
+                        >
 
-                        <img
-                            src={prop.thumb}
-                            alt={prop.name}
-                            className="w-full h-full object-cover brightness-75 group-hover:scale-105 transition duration-700"
-                        />
+                            <img
+                                src={prop.thumb}
+                                alt={prop.name}
+                                className="w-full h-full object-cover brightness-75 group-hover:scale-105 transition duration-700"
+                            />
 
-                        <div className="absolute bottom-3 w-full text-center text-[9px] tracking-[0.2em] text-white/60">
+                            <div className="absolute bottom-3 w-full text-center text-[9px] tracking-[0.2em] text-white/60">
 
-                            {prop.name.split("\n").map((line, idx) => (
-                                <div key={idx}>{line}</div>
-                            ))}
+                                {prop.name.split("\n").map((line, idx) => (
+                                    <div key={idx}>{line}</div>
+                                ))}
 
-                        </div>
+                            </div>
 
-                    </motion.div>
+                        </motion.div>
 
-                ))}
+                    ))}
+                </AnimatePresence>
 
 
                 {/* ARROWS */}
