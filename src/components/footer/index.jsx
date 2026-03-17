@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { MdArrowOutward } from "react-icons/md";
+
 export default function Footer() {
     return (
         <footer className="bg-[#111111] text-white w-full">
@@ -14,12 +17,12 @@ export default function Footer() {
                         </h3>
 
                         <div className="flex flex-col gap-2 text-sm">
-                            <a href="#projects" className="hover:opacity-70 transition">
+                            <Link href="#projects" className="hover:opacity-70 transition">
                                 Projects
-                            </a>
-                            <a href="#services" className="hover:opacity-70 transition">
+                            </Link>
+                            <Link href="#services" className="hover:opacity-70 transition">
                                 Services
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     
@@ -30,19 +33,24 @@ export default function Footer() {
                 {/* Center column */}
                 <div className="border-b md:border-b-0 md:border-r border-white/10 flex flex-col items-center justify-center py-12 gap-2 text-center px-6">
 
-                    <a
-                        href="tel:+918074730610"
+                    <Link
+                        href="tel:+919873255071"
                         className="text-2xl font-lato md:text-4xl font-medium tracking-wide leading-none hover:opacity-70 transition"
                     >
-                        +91 9871 243 804
-                    </a>
+                        +91 9873 255 071
+                    </Link>
 
-                    <a
-                        href="mailto:hello@renova.studio"
+                    <Link
+                        href="mailto:vikas@willowcasa.in"
                         className="text-xl md:text-2xl font-light tracking-wide leading-none hover:opacity-70 transition"
                     >
-                        thewillowcasa@gmail.com
-                    </a>
+                        vikas@willowcasa.in
+                    </Link>
+
+                    <Link href="/contact" className="text-lg font-lato font-light tracking-wide leading-none hover:opacity-70 transition flex gap-2 items-center border-b border-white pb-1 mt-2">
+                        Contact Us
+                        <MdArrowOutward />
+                    </Link>
 
                 </div>
 
@@ -57,12 +65,12 @@ export default function Footer() {
                         </h3>
 
                         <div className="flex flex-col gap-2 text-sm">
-                            <a href="#about" className="hover:opacity-70 transition">
+                            <Link href="#about" className="hover:opacity-70 transition">
                                 About Us
-                            </a>
-                            <a href="#contact" className="hover:opacity-70 transition">
+                            </Link>
+                            <Link href="#contact" className="hover:opacity-70 transition">
                                 Contact
-                            </a>
+                            </Link>
                         </div>
 
                     </div>
@@ -78,23 +86,23 @@ export default function Footer() {
                 {/* Address */}
                 <div className="border-b md:border-b-0 md:border-r border-white/10 px-8 py-6 text-center md:text-left">
                     <p className="text-[10px] tracking-[0.15em] leading-relaxed uppercase text-white/80">
-                        5, 3rd Floor Invento<br />
-                        Sector 12,<br />
-                        Dwarka New Delhi 110075
+                        SF-204,The Peach Tree Complex,<br />
+                        Block-C Sushant Lok,Phase-1,<br />
+                        Sector-43 Gurgaon Gurgaon HR 122002
                     </p>
                 </div>
 
                 {/* Tagline */}
                 <div className="border-b md:border-b-0 md:border-r border-white/10 flex items-end justify-center px-8 py-6">
                     <p className="text-[10px] tracking-[0.2em] uppercase text-white/80">
-                        Timeless Design. Lasting Spaces.
+                        Architecture | Interior Design | Turnkey Projects | Landscape
                     </p>
                 </div>
 
                 {/* Copyright */}
                 <div className="flex items-end justify-center md:justify-end px-8 py-6 text-center md:text-right">
                     <p className="text-[10px] tracking-[0.15em] leading-relaxed uppercase text-white/80">
-                        2026 The Willow Casa.<br />
+                        2026 Willow Casa Pvt Ltd.<br />
                         All Rights Reserved.
                     </p>
                 </div>

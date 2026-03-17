@@ -1,53 +1,25 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+
 import Link from "next/link";
+import { useRef } from "react";
 import { MdArrowOutward } from "react-icons/md";
 
 export default function ProjectCard({ title, desc, link, tags, images }) {
 
-    const [current, setCurrent] = useState(0);
-    const [direction, setDirection] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    useEffect(() => {
-        if (!images || images.length <= 1) return;
-
-        const timer = setInterval(() => {
-            setDirection(1);
-            setCurrent((prev) => (prev + 1) % images.length);
-        }, 3500);
-
-        return () => clearInterval(timer);
-    }, [images]);
-
-    const goTo = (index) => {
-        setDirection(index > current ? 1 : -1);
-        setCurrent(index);
-    };
-
-    const variants = {
-        enter: (dir) => ({
-            x: dir > 0 ? "100%" : "-100%",
-            opacity: 0,
-        }),
-        center: {
-            x: 0,
-            opacity: 1,
-            transition: { duration: 0.55, ease: [0.32, 0.72, 0, 1] },
-        },
-        exit: (dir) => ({
-            x: dir > 0 ? "-100%" : "100%",
-            opacity: 0,
-            transition: { duration: 0.45, ease: [0.32, 0.72, 0, 1] },
-        }),
-    };
+    const swiperRef = useRef(null);
 
     return (
-        <div className="bg-white flex flex-col md:flex-row border-b border-gray-300 pb-6 md:pb-10">
+        <div className="bg-white flex flex-col md:flex-row gap-4 rounded-2xl p-4 md:p-8">
 
             {/* Left Column */}
-            <div className="md:w-1/3 md:px-8 pt-8">
+            <div className="md:w-1/3">
 
                 <span className="text-xs md:text-sm text-gray-500 tracking-widest uppercase flex items-center gap-2 font-mono font-semibold mt-3">
                     <span className="w-2 h-2 rounded-full border border-gray-500 inline-block" />
@@ -58,7 +30,7 @@ export default function ProjectCard({ title, desc, link, tags, images }) {
 
 
             {/* Right Column */}
-            <div className="md:w-2/3 pt-8 pb-8 flex flex-col gap-6">
+            <div className="md:w-2/3 flex flex-col gap-6">
 
                 {/* Title + View Case */}
                 <div className="flex flex-col md:flex-row justify-between gap-6">
@@ -70,7 +42,7 @@ export default function ProjectCard({ title, desc, link, tags, images }) {
                     {link && (
                         <Link
                             href={link}
-                            className="text-sm text-gray-500 border-b border-gray-400 hover:text-gray-900 whitespace-nowrap font-mono w-max h-max"
+                            className="ml-1 text-xs md:text-sm text-gray-500 border-b border-gray-400 hover:text-gray-900 whitespace-nowrap font-mono w-max h-max"
                         >
                             View Case 
                             <MdArrowOutward className="inline-block ml-1 mb-0.5" />
@@ -96,35 +68,49 @@ export default function ProjectCard({ title, desc, link, tags, images }) {
                 {/* Image Slider */}
                 <div className="relative w-full overflow-hidden rounded-2xl bg-stone-100 aspect-video">
 
-                    <AnimatePresence custom={direction} initial={false}>
-                        <motion.img
-                            key={current}
-                            src={images?.[current]}
-                            alt={`Slide ${current + 1}`}
-                            custom={direction}
-                            variants={variants}
-                            initial="enter"
-                            animate="center"
-                            exit="exit"
-                            className="absolute inset-0 w-full h-full object-cover"
-                            draggable={false}
-                        />
-                    </AnimatePresence>
+                    <Swiper
+                        modules={[Autoplay]}
+                        loop={images?.length > 1}
+                        autoplay={
+                            images?.length > 1
+                                ? {
+                                      delay: 3500,
+                                      disableOnInteraction: false,
+                                  }
+                                : false
+                        }
+                        onSwiper={(swiper) => (swiperRef.current = swiper)}
+                        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+                        className="w-full h-full"
+                    >
+                        {images?.map((img, i) => (
+                            <SwiperSlide key={i}>
+                                <img
+                                    src={img}
+                                    alt={`Slide ${i + 1}`}
+                                    className="w-full h-full object-cover"
+                                    draggable={false}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
 
-                    {/* Dots */}
+                    {/* Custom Dots */}
                     {images?.length > 1 && (
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+
                             {images.map((_, i) => (
                                 <button
                                     key={i}
-                                    onClick={() => goTo(i)}
-                                    className={`rounded-full transition-all duration-300 ${
-                                        i === current
+                                    onClick={() => swiperRef.current?.slideToLoop(i)}
+                                    className={`transition-all duration-300 rounded-full ${
+                                        activeIndex === i
                                             ? "w-5 h-1.5 bg-white"
                                             : "w-1.5 h-1.5 bg-white/50"
                                     }`}
                                 />
                             ))}
+
                         </div>
                     )}
 

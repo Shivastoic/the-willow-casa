@@ -16,7 +16,7 @@ export default function Home() {
 		<HomeServiceBento />
 		<WhyUs />
 		<HomeProjects />
-		<Testimonial />
+		{/* <Testimonial /> */}
 		</>
 
 	)

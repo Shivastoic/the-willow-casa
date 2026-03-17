@@ -57,7 +57,7 @@ export default function HomeServiceBento() {
                         whileInView="visible"
                         viewport={{ once: true }}
                         transition={{ delay: 0.15 }}
-                        className="w-full h-max bg-cream rounded-2xl p-4 md:p-6 flex flex-col gap-6"
+                        className="w-full h-max bg-cream/50 rounded-2xl p-4 md:p-6 flex flex-col gap-6"
                     >
                         <Link href="/services">
                             <button className="px-6 py-3 font-poppins rounded-full border-2 border-black/30 hover:bg-black hover:text-white transition cursor-pointer flex items-center gap-3">
