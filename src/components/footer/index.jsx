@@ -3,7 +3,7 @@ import { MdArrowOutward } from "react-icons/md";
 
 export default function Footer() {
     return (
-        <footer className="bg-[#111111] text-white w-full">
+        <footer className="bg-primary-brown text-white w-full">
 
             {/* Top section */}
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2.5fr_1fr] border-t border-white/10">

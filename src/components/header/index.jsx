@@ -5,11 +5,12 @@ import { MdArrowOutward } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const NAV_LINKS = [
-    { name: "About Us", link: "#about" },
-    { name: "Services", link: "#services" },
-    { name: "Projects", link: "#projects" },
+    { name: "About Us", link: "/about" },
+    { name: "Services", link: "/services" },
+    { name: "Projects", link: "/projects" },
 ]
 
 export default function Header() {
@@ -17,6 +18,9 @@ export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
     const [hidden, setHidden] = useState(false)
+
+    const pathname = usePathname()
+    const isHome = pathname === "/"
 
     useEffect(() => {
 
@@ -47,21 +51,13 @@ export default function Header() {
                 initial={{ y: 0 }}
                 animate={{ y: hidden ? -120 : 0 }}
                 transition={{ duration: 0.35 }}
-                className={`fixed top-0 left-0 w-full z-50 px-6 py-3 border-b border-white/20 transition-colors duration-500 ${
-                    scrolled ? "bg-primary-brown" : "bg-transparent"
-                }`}
+                className={`fixed top-0 left-0 w-full z-50 px-6 py-3 border-b border-white/20 transition-colors duration-500 ${!isHome || scrolled ? "bg-primary-brown" : "bg-transparent"}`}
             >
-
-                {scrolled && (
-                    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                        <div className="absolute w-[600px] h-[600px] bg-yellow-500/10 blur-[160px] rounded-full top-[-200px] left-[-200px]" />
-                    </div>
-                )}
 
                 <div className="flex items-center justify-between relative z-10">
 
                     {/* Logo */}
-                    <Link href="#home">
+                    <Link href="/">
                         <Image
                             src="/logos/logo.png"
                             alt="logo"
@@ -147,7 +143,7 @@ export default function Header() {
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
                         transition={{ duration: 0.45, ease: "easeInOut" }}
-                        className="fixed top-0 right-0 h-screen w-[80%] max-w-[400px] bg-black z-40 flex flex-col justify-center px-10 gap-10"
+                        className="fixed top-0 right-0 h-screen w-[80%] max-w-[400px] bg-primary-brown z-40 flex flex-col justify-center px-10 gap-10"
                     >
 
                         {NAV_LINKS.map((item, index) => (
