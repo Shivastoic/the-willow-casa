@@ -1,3 +1,4 @@
+import Cta from "@/components/home/cta";
 import ServicesMain from "@/components/services/services-main";
 
 export default function Services(){
@@ -6,6 +7,7 @@ export default function Services(){
 
         <>
             <ServicesMain />
+            <Cta />
         </>
 
     )
