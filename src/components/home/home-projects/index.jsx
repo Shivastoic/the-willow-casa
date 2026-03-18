@@ -15,7 +15,7 @@ const projectData = [
         id: 1,
         title: "Luxury Villa Homestay: Surrounded by Greenery and Gentle Mountains.",
         desc: "Barefoot Bungalow, Mussoorie",
-        link: "/projects/barefoot",
+        link: "/projects",
         tags: ["Oriental", "Natural", "Bungalow", "Homestay"],
         images: [
             "/images/projects/barefoot/1.webp",
@@ -29,7 +29,7 @@ const projectData = [
         id: 2,
         title: "Hotel: Luxury Hotel with premium ambiance and confortable stay.",
         desc: "Fairfield Hotel by Marriott",
-        link: "/projects/fairfield",
+        link: "/projects",
         tags: ["Luxury", "Premium", "Modern", "Comfort"],
         images: [
             "/images/projects/fairfield/1.webp",
@@ -42,7 +42,7 @@ const projectData = [
         id: 3,
         title: "A serene farmhouse retreat blending modern luxury with calming textures and mindful living.",
         desc: "Paonta Sahib Farmouse",
-        link: "/projects/paonta",
+        link: "/projects",
         tags: ["Farmhouse", "Serene", "Nature", "Luxury"],
         images: [
             "/images/projects/paonta/1.jpg",
