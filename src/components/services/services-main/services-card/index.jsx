@@ -68,7 +68,7 @@ export default function ServicesMainCard({ id, title, desc, images, features }) 
     const ImageSlider = (
         <div
             ref={containerRef}
-            className="relative w-full overflow-hidden rounded-2xl bg-stone-100 aspect-video"
+            className="relative w-full overflow-hidden bg-stone-100 aspect-video"
         >
             <Swiper
                 key={images?.length}
