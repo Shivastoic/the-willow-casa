@@ -8,6 +8,7 @@ import "swiper/css";
 import Link from "next/link";
 import { useRef } from "react";
 import { MdArrowOutward } from "react-icons/md";
+import Image from "next/image";
 
 export default function ProjectCard({ title, desc, link, tags, images }) {
 
@@ -35,7 +36,7 @@ export default function ProjectCard({ title, desc, link, tags, images }) {
                 {/* Title + View Case */}
                 <div className="flex flex-col md:flex-row justify-between gap-6">
 
-                    <h1 className="text-xl md:text-3xl font-medium font-lato text-gray-900 md:leading-normal max-w-xl">
+                    <h1 className={`text-xl md:text-3xl font-semibold font-lato text-gray-900 md:leading-normal tracking-wide ${link ? "max-w-xl" : ""}`}>
                         {title}
                     </h1>
 
@@ -85,11 +86,12 @@ export default function ProjectCard({ title, desc, link, tags, images }) {
                     >
                         {images?.map((img, i) => (
                             <SwiperSlide key={i}>
-                                <img
+                                <Image
                                     src={img}
                                     alt={`Slide ${i + 1}`}
-                                    className="w-full h-full object-cover"
-                                    draggable={false}
+                                    width={1000}
+                                    height={1000}
+                                    className="w-full h-full object-cover pointer-events-none"
                                 />
                             </SwiperSlide>
                         ))}

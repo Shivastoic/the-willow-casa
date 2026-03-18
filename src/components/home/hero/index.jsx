@@ -9,20 +9,20 @@ const PROPERTIES = [
     {
         id: 1,
         name: "AURORA\nRESIDENCE",
-        image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80",
-        thumb: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=80",
+        image: "/images/home-hero/picture1.jpg",
+        thumb: "/images/home-hero/picture1.jpg"
     },
     {
         id: 2,
         name: "THAILIVING\nRESIDENCE",
-        image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80",
-        thumb: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80",
+        image: "/images/home-hero/picture2.jpeg",
+        thumb: "/images/home-hero/picture2.jpeg",
     },
     {
         id: 3,
         name: "NOVA\nRESIDENCE",
-        image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80",
-        thumb: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=80",
+        image: "/images/home-hero/picture3.webp",
+        thumb: "/images/home-hero/picture3.webp",
     },
 ]
 
@@ -130,9 +130,11 @@ export default function Hero() {
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             className="absolute inset-0 overflow-hidden rounded-xl"
                         >
-                            <img
+                            <Image
                                 src={active.image}
                                 alt={active.name}
+                                width={1000}
+                                height={1000}
                                 className="w-full h-full rounded-xl object-cover"
                             />
                         </motion.div>

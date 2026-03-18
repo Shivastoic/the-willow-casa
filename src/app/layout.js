@@ -99,7 +99,16 @@ export const metadata = {
         }
     },
 
-    category: "Construction & Architecture"
+    category: "Construction & Architecture",
+
+    icons: {
+		icon: [
+			{ url: '/favicon.png', type: 'image/png' },
+		],
+		shortcut: [
+			{ url: '/favicon.png', type: 'image/png' },
+		],
+	},
 };
 
 export default function RootLayout({ children }) {

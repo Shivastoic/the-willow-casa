@@ -1,3 +1,4 @@
+import ProjectsCollection from "@/components/projects/projects-collection";
 import ProjectsHero from "@/components/projects/projects-hero";
 
 export default function Projects(){
@@ -6,6 +7,7 @@ export default function Projects(){
 
         <>
         <ProjectsHero />
+        <ProjectsCollection />
         </>
 
     )

@@ -1,7 +1,7 @@
 "use client"
 
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Pagination } from "swiper/modules"
+import { Navigation, Pagination, Autoplay } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/pagination"
 
@@ -10,11 +10,12 @@ import Container from "@/components/container"
 import Image from "next/image"
 import Link from "next/link"
 import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md"
+import { delay } from "framer-motion"
 
 const SERVICES = [
     {
         number: "01",
-        image: "/images/services/residential.jpg",
+        image: "/images/services/resident.jpeg",
         title: "Residential Interiors",
         desc: "Thoughtfully designed living spaces tailored for modern homes, blending comfort, functionality, and refined aesthetics to create environments that truly feel personal."
     },
@@ -32,8 +33,8 @@ const SERVICES = [
     },
     {
         number: "04",
-        image: "/images/services/building.jpg",
-        title: "Large-Scale Building Projects",
+        image: "/images/services/buildings.jpeg",
+        title: "Scale Building Projects",
         desc: "Comprehensive interior planning and execution for multi-unit developments and large residential projects, ensuring design consistency and construction precision."
     },
     {
@@ -83,9 +84,13 @@ export default function CardCarousel() {
 
                     {/* Swiper */}
                     <Swiper
-                        modules={[Navigation, Pagination]}
+                        modules={[Navigation, Pagination, Autoplay]}
                         spaceBetween={8}
                         slidesPerView={1}
+                        autoplay={{
+                            delay: 4000,
+                            disableOnInteraction: false
+                        }}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
                         pagination={{ clickable: true }}
                         breakpoints={{
