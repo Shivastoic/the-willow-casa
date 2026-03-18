@@ -32,7 +32,7 @@ const data = {
                 label: "Satisfied Clients"
             },
             {
-                number: "100+",
+                number: "400+",
                 label: "Completed Projects"
             }
         ]
@@ -51,7 +51,7 @@ export default function WhyUs() {
                         <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
                             {data.title}
                         </h2>
-                        <p className="text-sm md:text-base font-poppins max-w-150">
+                        <p className="text-sm md:text-base text-neutral-500 font-poppins max-w-150">
                             {data.description}
                         </p>
                     </div>
@@ -59,7 +59,7 @@ export default function WhyUs() {
                         <div className="grid grid-cols-1">
                             {data.part1.map((item, index) => (
                                 <div key={index} className="border-b border-gray-300 py-8">
-                                    <h3 className="text-lg md:text-2xl font-poppins">
+                                    <h3 className="text-lg md:text-2xl font-medium font-poppins">
                                         {item.title}
                                     </h3>
                                     <p className="text-sm text-gray-700 font-poppins mt-2 max-w-120">

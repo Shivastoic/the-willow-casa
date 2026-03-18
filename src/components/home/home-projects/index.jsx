@@ -13,41 +13,43 @@ const data = {
 const projectData = [
     {
         id: 1,
-        title: "Quiet Growth: A Warm Home Shaped by Greenery and Gentle Moments",
-        desc: "Home of Xiaoming and Dazi",
-        link: "/cases/xiaoming-dazi",
-        tags: ["Oriental", "Natural", "Family", "Calm"],
+        title: "Luxury Villa Homestay: Surrounded by Greenery and Gentle Mountains.",
+        desc: "Barefoot Bungalow, Mussoorie",
+        link: "/projects/barefoot",
+        tags: ["Oriental", "Natural", "Bungalow", "Homestay"],
         images: [
-            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80",
-            "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80",
-            "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80",
-            "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=1200&q=80",
+            "/images/projects/barefoot/1.webp",
+            "/images/projects/barefoot/2.webp",
+            "/images/projects/barefoot/3.webp",
+            "/images/projects/barefoot/4.webp",
+            "/images/projects/barefoot/5.webp",
         ],
     },
     {
         id: 2,
-        title: "Still Waters: A Minimalist Retreat Defined by Light and Shadow",
-        desc: "Studio of Lena and Marco",
-        link: "/cases/lena-marco",
-        tags: ["Minimalist", "Nordic", "Couple", "Serene"],
+        title: "Hotel: Luxury Hotel with premium ambiance and confortable stay.",
+        desc: "Fairfield Hotel by Marriott",
+        link: "/projects/fairfield",
+        tags: ["Luxury", "Premium", "Modern", "Comfort"],
         images: [
-            "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80",
-            "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1200&q=80",
-            "https://images.unsplash.com/photo-1600607687939-ce8a6d349c8b?w=1200&q=80",
-            "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80",
+            "/images/projects/fairfield/1.webp",
+            "/images/projects/fairfield/2.jpeg",
+            "/images/projects/fairfield/3.webp",
+            "/images/projects/fairfield/4.webp",
         ],
     },
     {
         id: 3,
-        title: "Urban Zen: A High-Rise Sanctuary Softened by Texture and Ritual",
-        desc: "Penthouse of Aryan and Priya",
-        link: "/cases/aryan-priya",
-        tags: ["Urban", "Zen", "Luxury", "Textured"],
+        title: "A serene farmhouse retreat blending modern luxury with calming textures and mindful living.",
+        desc: "Paonta Sahib Farmouse",
+        link: "/projects/paonta",
+        tags: ["Farmhouse", "Serene", "Nature", "Luxury"],
         images: [
-            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80",
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
-            "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80",
-            "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1200&q=80",
+            "/images/projects/paonta/1.jpg",
+            "/images/projects/paonta/2.png",
+            "/images/projects/paonta/3.png",
+            "/images/projects/paonta/4.png",
+            "/images/projects/paonta/5.png",
         ],
     },
 ];
@@ -57,8 +59,8 @@ export default function HomeProjects() {
     return(
 
         <section className="px-2 md:px-4">
-            <div className="md:px-4 py-20 bg-cream/50 rounded-3xl">
-                <Container>
+            <div className="px-2 md:px-4 py-20 bg-cream/50 rounded-3xl">
+                <div className="mx-auto lg:max-w-340 h-full">
                     <div className="space-y-8">
                         <div className="space-y-8 border-b border-gray-300 pb-8">
                             <h2 className="text-xl md:text-2xl font-oswald font-medium italic uppercase">
@@ -69,7 +71,7 @@ export default function HomeProjects() {
                                     {data.desc}
                                 </p>
                                 <div className="flex items-end">
-                                    <Link href="/contact">
+                                    <Link href="/projects">
                                         <button className="px-4 py-2 md:px-6 md:py-3 font-poppins border border-black/30 hover:bg-white bg-[#111111] hover:text-black text-white transition cursor-pointer flex items-center gap-3">
                                             Collections
                                             <MdArrowOutward size={18} />
@@ -85,7 +87,7 @@ export default function HomeProjects() {
 
                         </div>
                     </div>
-                </Container>
+                </div>
             </div>
         </section>
 
