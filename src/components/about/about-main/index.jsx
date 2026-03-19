@@ -458,7 +458,7 @@ export default function AboutMain() {
                                     className="grid grid-cols-3 gap-6 pt-6 mt-2"
                                     style={{ borderTop: "1px solid #d4c4a855" }}>
                                     {[
-                                        { value: "100+", label: "Projects Delivered" },
+                                        { value: "400+", label: "Projects Delivered" },
                                         { value: "25+", label: "Cities Served" },
                                         { value: "5+", label: "Years Experience" },
                                     ].map((stat, i) => (
@@ -491,7 +491,8 @@ export default function AboutMain() {
                         border: "1px solid rgba(200,169,110,0.08)",
                         bottom: "-350px", left: "-250px",
                         pointerEvents: "none",
-                    }} />
+                    }}
+                    className="hidden lg:block" />
                     <div style={{
                         position: "absolute",
                         width: "600px", height: "600px",
@@ -499,11 +500,12 @@ export default function AboutMain() {
                         border: "1px solid rgba(200,169,110,0.06)",
                         bottom: "-200px", left: "-100px",
                         pointerEvents: "none",
-                    }} />
+                    }}
+                    className="hidden lg:block" />
 
                     {/* Warm amber orbs */}
-                    <motion.div style={{ y: orbY, position: "absolute", top: "-60px", right: "-80px", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(200,169,110,0.15) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
-                    <motion.div style={{ y: orbY, position: "absolute", bottom: "-100px", left: "20%", width: "350px", height: "350px", borderRadius: "50%", background: "radial-gradient(circle, rgba(158,124,90,0.12) 0%, transparent 70%)", filter: "blur(80px)", pointerEvents: "none" }} />
+                    <motion.div className="hidden lg:block" style={{ y: orbY, position: "absolute", top: "-60px", right: "-80px", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(200,169,110,0.15) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
+                    <motion.div className="hidden lg:block" style={{ y: orbY, position: "absolute", bottom: "-100px", left: "20%", width: "350px", height: "350px", borderRadius: "50%", background: "radial-gradient(circle, rgba(158,124,90,0.12) 0%, transparent 70%)", filter: "blur(80px)", pointerEvents: "none" }} />
 
                     {/* Grain overlay */}
                     <div style={{
