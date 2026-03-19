@@ -17,10 +17,10 @@ export default function Footer() {
                         </h3>
 
                         <div className="flex flex-col gap-2 text-sm">
-                            <Link href="#projects" className="hover:opacity-70 transition">
+                            <Link href="/projects" className="hover:opacity-70 transition">
                                 Projects
                             </Link>
-                            <Link href="#services" className="hover:opacity-70 transition">
+                            <Link href="/services" className="hover:opacity-70 transition">
                                 Services
                             </Link>
                         </div>
@@ -65,10 +65,10 @@ export default function Footer() {
                         </h3>
 
                         <div className="flex flex-col gap-2 text-sm">
-                            <Link href="#about" className="hover:opacity-70 transition">
+                            <Link href="/about" className="hover:opacity-70 transition">
                                 About Us
                             </Link>
-                            <Link href="#contact" className="hover:opacity-70 transition">
+                            <Link href="/contact" className="hover:opacity-70 transition">
                                 Contact
                             </Link>
                         </div>
