@@ -9,7 +9,7 @@ const data = {
 
     paraone: "Built on client trust and expert craftsmanship, we deliver spaces that combine strong construction, functional design, and refined architecture.",
 
-    paratwo: "ANN CONCEPT unites specialists in civil construction, interiors, landscaping, and building services, delivering high-rise projects, interior finishing, HVAC, electrical, and plumbing with precision and quality."
+    paratwo: "Willow Casa unites specialists in civil construction, interiors, landscaping, and building services, delivering high-rise projects, interior finishing, HVAC, electrical, and plumbing with precision and quality."
 
 }
 
