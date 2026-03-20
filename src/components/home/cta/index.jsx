@@ -28,7 +28,7 @@ export default function Cta(){
                         <h2 className="text-3xl md:text-5xl lg:text-6xl text-center font-cormorant-garamond font-bold uppercase text-cream max-w-250">{data.title}</h2>
                     </div>
                     <div className="relative z-10 flex justify-center px-4">
-                        <Link href="/services" >
+                        <Link href="/contact" >
                             <button className="px-6 py-3 font-poppins rounded-full border-2 border-cream/30 hover:bg-cream hover:text-black text-cream transition cursor-pointer flex items-center gap-3">
                                 Get in touch
                                 <MdArrowOutward size={18} />
