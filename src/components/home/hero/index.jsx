@@ -246,7 +246,7 @@ export default function Hero() {
                     animate={{ opacity: showMeta ? 1 : 0, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.2 }}
                     style={{
-                        position: "absolute", bottom: "clamp(48px,6vw,80px)", left: "clamp(20px,4vw,48px)",
+                        position: "absolute", bottom: "clamp(48px,6vw,70px)", left: "clamp(20px,4vw,48px)",
                         zIndex: 20, pointerEvents: "none",
                     }}
                     className="hidden lg:block"
