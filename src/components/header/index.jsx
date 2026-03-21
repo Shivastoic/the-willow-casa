@@ -159,9 +159,11 @@ export default function Header() {
                             </Link>
                         ))}
 
-                        <button className="text-white text-2xl border-b w-fit">
-                            CONTACT US
-                        </button>
+                        <Link href="/contact">
+                            <button className="text-white text-2xl border-b w-fit">
+                                CONTACT US
+                            </button>
+                        </Link>
 
                     </motion.div>
                 )}
