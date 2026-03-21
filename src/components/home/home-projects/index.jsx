@@ -15,7 +15,12 @@ const projectData = [
         id: 1,
         title: "Luxury Villa Homestay: Surrounded by Greenery and Gentle Mountains.",
         desc: "Barefoot Bungalow, Mussoorie",
-        link: "/projects",
+        description: "A warm oriental retreat nestled in the misty hills of Mussoorie, where handcrafted interiors, earthy textures, and panoramic mountain views create an unhurried sense of home.",
+        details: [
+            { label: "Location", value: "Mussoorie, Uttarakhand" },
+            { label: "Built-up Area", value: "4.5 Acre" },
+            { label: "Scope", value: "Interior, Landscaping, Lighting" },
+        ],
         tags: ["Oriental", "Natural", "Bungalow", "Homestay"],
         images: [
             "/images/projects/barefoot/1.webp",
@@ -27,9 +32,14 @@ const projectData = [
     },
     {
         id: 2,
-        title: "Hotel: Luxury Hotel with premium ambiance and confortable stay.",
+        title: "Hotel: Luxury Hotel with premium ambiance and comfortable stay.",
         desc: "Fairfield Hotel by Marriott",
-        link: "/projects",
+        description: "A premium hospitality interior balancing refined comfort with understated elegance — designed to make every guest feel at ease from the moment they arrive.",
+        details: [
+            { label: "Location", value: "Lucknow, Uttar Pradesh" },
+            { label: "Built-up Area", value: "2.8 Acre" },
+            { label: "Scope", value: "Interior, MEP, FF&E" },
+        ],
         tags: ["Luxury", "Premium", "Modern", "Comfort"],
         images: [
             "/images/projects/fairfield/1.webp",
@@ -41,8 +51,13 @@ const projectData = [
     {
         id: 3,
         title: "A serene farmhouse retreat blending modern luxury with calming textures and mindful living.",
-        desc: "Paonta Sahib Farmouse",
-        link: "/projects",
+        desc: "Paonta Sahib Farmhouse",
+        description: "Rooted in nature and quiet simplicity, this farmhouse retreat layers natural materials, soft light, and open spaces to offer a restorative escape from the everyday.",
+        details: [
+            { label: "Location", value: "Paonta Sahib, Himachal Pradesh" },
+            { label: "Built-up Area", value: "6.1 Acre" },
+            { label: "Scope", value: "Construction, Interior, Landscaping" },
+        ],
         tags: ["Farmhouse", "Serene", "Nature", "Luxury"],
         images: [
             "/images/projects/paonta/1.jpg",
@@ -85,6 +100,14 @@ export default function HomeProjects() {
                                 <ProjectCard key={i} {...project} />
                             ))}
 
+                        </div>
+                        <div className="flex items-end justify-center">
+                            <Link href="/projects">
+                                <button className="px-4 py-2 md:px-6 md:py-3 font-poppins border border-black/30 hover:bg-white bg-[#111111] hover:text-black text-white transition cursor-pointer flex items-center gap-3">
+                                    Collections
+                                    <MdArrowOutward size={18} />
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

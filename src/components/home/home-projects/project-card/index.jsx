@@ -10,7 +10,7 @@ import { useRef } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import Image from "next/image";
 
-export default function ProjectCard({ title, desc, link, tags, images }) {
+export default function ProjectCard({ title, desc, description, link, tags, images, details }) {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -45,7 +45,7 @@ export default function ProjectCard({ title, desc, link, tags, images }) {
                             href={link}
                             className="ml-1 text-xs md:text-sm text-gray-500 border-b border-gray-400 hover:text-gray-900 whitespace-nowrap font-mono w-max h-max"
                         >
-                            View Case 
+                            View Case
                             <MdArrowOutward className="inline-block ml-1 mb-0.5" />
                         </Link>
                     )}
@@ -64,6 +64,29 @@ export default function ProjectCard({ title, desc, link, tags, images }) {
                         </span>
                     ))}
                 </div>
+
+
+                {/* Project Description */}
+                {description && (
+                    <div className="relative pl-4 border-l-2 border-gray-200">
+                        <p className="text-sm md:text-base font-poppins text-gray-500 leading-relaxed tracking-wide font-light italic">
+                            {description}
+                        </p>
+                    </div>
+                )}
+
+                {/* Project Details */}
+                {details?.length > 0 && (
+                    <div className="flex flex-col gap-1.5">
+                        {details.map((item) => (
+                            <div key={item.label} className="flex items-baseline gap-2 text-xs md:text-sm font-mono">
+                                <span className="text-gray-700 font-medium text-sm md:text-base shrink-0">{item.label}</span>
+                                <span className="border-b border-dashed border-gray-200 flex-1" />
+                                <span className="text-gray-400 font-medium">{item.value}</span>
+                            </div>
+                        ))}
+                    </div>
+                )}
 
 
                 {/* Image Slider */}
