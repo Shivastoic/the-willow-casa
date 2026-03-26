@@ -47,7 +47,7 @@ const SERVICES = [
 
 const data = {
     title: "• Services we offer",
-    bottom_desc: "Every space tells a story. From residential homes and luxury apartments to large commercial interiors, we combine thoughtful design, quality materials, and expert craftsmanship to create spaces that feel refined, functional, and built to last.",
+    bottom_desc: "We design and deliver spaces that are thoughtfully planned, functionally efficient and built to stand the test of time. We design and create for India.",
 }
 
 export default function CardCarousel() {
