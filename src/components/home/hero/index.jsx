@@ -381,7 +381,7 @@ export default function Hero() {
                         animate={{ filter: phase === "initial" ? "blur(24px)" : "blur(0)", opacity: 1 }}
                         className="max-sm:text-center lg:absolute left-4 lg:left-0 bottom-[70%] text-7xl sm:text-9xl md:text-[8rem] font-cormorant-garamond pl-2 lg:pl-8 z-30 uppercase font-semibold text-cream"
                     >
-                        Elegant
+                        Designs
                     </motion.h1>
 
                     <motion.h1
@@ -389,7 +389,7 @@ export default function Hero() {
                         animate={{ filter: phase === "initial" ? "blur(24px)" : "blur(0)", opacity: 1 }}
                         className="max-sm:text-center lg:absolute right-2 lg:right-0 bottom-[45%] text-7xl sm:text-9xl md:text-[8rem] italic font-cormorant-garamond pr-2 lg:pr-8 z-30 uppercase font-semibold text-cream"
                     >
-                        Living
+                        <span className="md:text-4xl lowercase">That, </span>Last
                     </motion.h1>
 
 

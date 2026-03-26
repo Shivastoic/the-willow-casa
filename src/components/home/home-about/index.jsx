@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 
 const data = {
 
-    paraone: "Built on client trust and expert craftsmanship, we deliver spaces that combine strong construction, functional design, and refined architecture.",
+    paraone: "Willow Casa is a design-led studio bringing together architecture, interiors and engineering to deliver high-quality commercial and residential developments with precision, efficiency and refined aesthetics.",
 
-    paratwo: "Willow Casa unites specialists in civil construction, interiors, landscaping, and building services, delivering high-rise projects, interior finishing, HVAC, electrical, and plumbing with precision and quality."
+    paratwo: "Willow Casa is a design-led studio bringing together architecture, interiors and engineering to deliver high-quality commercial and residential developments with precision, efficiency and refined aesthetics."
 
 }
 
@@ -41,9 +41,9 @@ export default function HomeAbout() {
                                 {data.paraone}
                             </p>
 
-                            <p className="text-sm md:text-base font-poppins">
+                            {/* <p className="text-sm md:text-base font-poppins">
                                 {data.paratwo}
-                            </p>
+                            </p> */}
                         </div>
 
                         <div className="flex items-center gap-8">
