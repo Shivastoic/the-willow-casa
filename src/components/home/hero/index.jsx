@@ -9,22 +9,22 @@ const PROPERTIES = [
     {
         id: 1,
         name: "AURORA\nRESIDENCE",
-        image: "/images/home-hero/picture1.jpg",
-        thumb: "/images/home-hero/picture1.jpg",
+        image: "/images/projects/clinic/1.jpeg",
+        thumb: "/images/projects/clinic/1.jpeg",
         tag: "Residential · Lucknow",
     },
     {
         id: 2,
         name: "THAILIVING\nRESIDENCE",
-        image: "/images/home-hero/picture2.jpeg",
-        thumb: "/images/home-hero/picture2.jpeg",
+        image: "/images/projects/club-belaire/1.jpg",
+        thumb: "/images/projects/club-belaire/1.jpg",
         tag: "Luxury · Gurgaon",
     },
     {
         id: 3,
         name: "NOVA\nRESIDENCE",
-        image: "/images/home-hero/picture3.webp",
-        thumb: "/images/home-hero/picture3.webp",
+        image: "/images/projects/paras/1.png",
+        thumb: "/images/projects/paras/1.png",
         tag: "Interior · Delhi",
     },
 ]
